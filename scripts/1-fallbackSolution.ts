@@ -38,6 +38,10 @@ it("sends a transaction to contract", async function () {
   console.log(tx);
 })
 
+it("checks who owner is", async function() {
+  console.log(await challenge.owner());
+})
+
 
 
 after(async () => {
