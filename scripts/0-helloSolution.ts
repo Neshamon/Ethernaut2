@@ -120,7 +120,8 @@ it("solves the challenge", async function () {
   const solutions = await Promise.all([
     challenge.info(),
     challenge.info1(),
-    challenge.info2("hello")
+    challenge.info2("hello"),
+    challenge.infoNum()
   ])
   console.log(solutions.join(`\n`));
 })
