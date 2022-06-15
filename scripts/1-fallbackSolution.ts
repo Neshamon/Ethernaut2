@@ -42,7 +42,9 @@ it("checks who owner is", async function() {
   console.log(await challenge.owner());
 })
 
-
+it("withdraws all money from contract", async function() {
+  console.log(await challenge.withdraw());
+})
 
 after(async () => {
   expect(await submitLevel(challenge.address), "level not solved").to.be.true;
