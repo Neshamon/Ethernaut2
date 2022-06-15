@@ -3,7 +3,7 @@ pragma solidity ^0.6.0;
 import '@openzeppelin/contracts/math/SafeMath.sol';
 
 contract Fallout {
-  
+
   using SafeMath for uint256;
   mapping (address => uint) allocations;
   address payable public owner;
@@ -13,7 +13,11 @@ contract Fallout {
   function Fal1out() public payable {
     owner = msg.sender;
     allocations[owner] = msg.value;
-  }
+  }/*@dev It appears that the vulnerability within this contract is
+    *this method labelled as a constructor.
+    *The method isn't even safeguarded by the onlyOwner modifier, thus anyone can call it
+    *and claim ownership.
+    */
 
   modifier onlyOwner {
 	        require(
