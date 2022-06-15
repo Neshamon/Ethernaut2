@@ -17,9 +17,18 @@ before(async () => {
   challenge = await challengeFactory.attach(challengeAddress);
 });
 
-it("solves the challenge", async function() {
-  
+it("calls contribute method", async function() {
+  tx = await challenge.contribute({
+    value: ethers.utils.parseUnits(`1`, `wei`)
+  }),
+  await tx.wait();
+  console.log(tx)
 })
+
+it("checks for added contributions", async function() {
+  console.log(await challenge.getContribution())
+})
+
 
 after(async () => {
   expect(await submitLevel(challenge.address), "level not solved").to.be.true;
