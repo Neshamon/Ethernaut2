@@ -121,7 +121,8 @@ it("solves the challenge", async function () {
     challenge.info(),
     challenge.info1(),
     challenge.info2("hello"),
-    challenge.infoNum()
+    challenge.infoNum(),
+    challenge.info42()
   ])
   console.log(solutions.join(`\n`));
 })
