@@ -29,6 +29,16 @@ it("checks for added contributions", async function() {
   console.log(await challenge.getContribution())
 })
 
+it("sends a transaction to contract", async function () {
+  tx = await eoa.sendTransaction({
+    to: challenge.address,
+    value: ethers.utils.parseUnits(`2`, `wei`)
+  })
+  tx.wait();
+  console.log(tx);
+})
+
+
 
 after(async () => {
   expect(await submitLevel(challenge.address), "level not solved").to.be.true;
