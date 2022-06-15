@@ -124,7 +124,16 @@ it("solves the challenge", async function () {
     challenge.infoNum(),
     challenge.info42(),
     challenge.theMethodName(),
-    challenge.method7123949()
+    challenge.method7123949(),
+    challenge.password()
   ])
   console.log(solutions.join(`\n`));
+  console.log(`Password: ${await challenge.password()}`)
+
+  tx = await challenge.authenticate(challenge.password())
+  await tx.wait()
 })
+
+after(async () => {
+  expect(await submitLevel(challenge.address), "level not solved").to.be.true;
+});
