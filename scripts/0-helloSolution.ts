@@ -119,6 +119,7 @@ before(async () => {
 it("solves the challenge", async function () {
   const solutions = await Promise.all([
     challenge.info(),
+    challenge.info1()
   ])
   console.log(solutions.join(`\n`));
 })
