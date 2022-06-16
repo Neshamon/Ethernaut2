@@ -23,6 +23,10 @@ it("claims ownership of contract", async function() {
   console.log(tx)
 })
 
+it("checks ownership", async function() {
+  console.log(await challenge.owner())
+})
+
 after(async () => {
   expect(await submitLevel(challenge.address), "level not solved").to.be.true;
 });
