@@ -17,6 +17,10 @@ before(async () => {
   challenge = await challengeFactory.attach(challengeAddress);
 });
 
+it("checks initial ownership", async function() {
+  console.log(await challenge.owner())
+})
+
 it("claims ownership of contract", async function() {
   tx = await challenge.Fal1out()
   await tx.wait()
